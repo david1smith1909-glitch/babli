@@ -204,7 +204,74 @@
             }
         }
 
-        /* === Hero Section === */
+        /* === ENLARGED CIRCULAR TEDDY DECORATIONS === */
+        .teddy-decoration {
+            position: fixed;
+            z-index: 5;
+            transition: all 0.3s ease;
+            animation: floatTeddy 6s ease-in-out infinite;
+        }
+
+        @keyframes floatTeddy {
+            0%, 100% { transform: translateY(0px) rotate(-2deg); }
+            50% { transform: translateY(-25px) rotate(2deg); }
+        }
+
+        .teddy-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 6px solid #ff1744;
+            box-shadow: 
+                0 20px 60px rgba(255, 23, 68, 0.5),
+                0 0 40px rgba(255, 105, 180, 0.4),
+                inset 0 0 30px rgba(255, 192, 203, 0.2);
+            background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+        }
+
+        .teddy-circle:hover {
+            transform: scale(1.15);
+            box-shadow: 
+                0 30px 80px rgba(255, 23, 68, 0.7),
+                0 0 60px rgba(255, 105, 180, 0.6);
+            border-width: 8px;
+        }
+
+        .teddy-circle img,
+        .teddy-circle video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .teddy-1 {
+            bottom: 8%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .teddy-2 {
+            top: 12%;
+            right: 6%;
+            animation-delay: 1.5s;
+        }
+
+        .teddy-3 {
+            bottom: 12%;
+            right: 5%;
+            animation-delay: 3s;
+        }
+
+        .teddy-3 .teddy-circle {
+            border-color: #e91e63;
+        }
+
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -217,6 +284,17 @@
             z-index: 2;
         }
 
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,192,203,0.2), transparent 60%);
+            animation: glowMove 10s linear infinite;
+            pointer-events: none;
+        }
+
+        /* === ENHANCED: Gold Glow Text Effect === */
         .hero-title {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(3rem, 10vw, 7rem);
@@ -255,6 +333,15 @@
             }
         }
 
+        .hero-subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: #e91e63;
+            margin-bottom: 2rem;
+            letter-spacing: 3px;
+            animation: slideInLeft 2s ease-out 0.5s both;
+        }
+
         @keyframes slideInLeft {
             from {
                 opacity: 0;
@@ -264,26 +351,6 @@
                 opacity: 1;
                 transform: translateX(0);
             }
-        }
-
-        @keyframes zoomIn {
-            from {
-                opacity: 0;
-                transform: scale(0.5);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .hero-subtitle {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(1.2rem, 3vw, 2rem);
-            color: #e91e63;
-            margin-bottom: 2rem;
-            letter-spacing: 3px;
-            animation: slideInLeft 2s ease-out 0.5s both;
         }
 
         .hero-shayari {
@@ -297,6 +364,17 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
         /* === Glassmorphism Love Counter === */
         .love-counter {
             margin: 3rem 0;
@@ -307,7 +385,7 @@
             border-radius: 25px;
             border: 2px solid rgba(255, 255, 255, 0.4);
             box-shadow: 
-                0 8px 32px 0 rgba(196, 30, 58, 0.25),
+                0 8px 32px 0 rgba(255, 23, 68, 0.25),
                 inset 0 0 20px rgba(255, 192, 203, 0.2);
             animation: rotateIn 2s ease-out 1.5s both;
         }
@@ -346,8 +424,6 @@
             letter-spacing: 2px;
             font-weight: 600;
         }
-
-        /* Running heart game removed */
 
         /* === NEW: Interactive Heart Game with Burst === */
         .interactive-heart-container {
@@ -453,47 +529,7 @@
             }
         }
 
-        /* Teddy bear decorations */
-        .teddy-decoration {
-            position: fixed;
-            z-index: 5;
-            opacity: 0.8;
-            transition: all 0.3s ease;
-            animation: floatTeddy 6s ease-in-out infinite;
-        }
-
-        @keyframes floatTeddy {
-            0%, 100% { transform: translateY(0px) rotate(-5deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
-        }
-
-        .teddy-decoration:hover {
-            transform: scale(1.2);
-            opacity: 1;
-        }
-
-        .teddy-1 {
-            bottom: 5%;
-            left: 5%;
-            width: 120px;
-            animation-delay: 0s;
-        }
-
-        .teddy-2 {
-            top: 10%;
-            right: 8%;
-            width: 100px;
-            animation-delay: 1s;
-        }
-
-        .teddy-3 {
-            bottom: 10%;
-            right: 5%;
-            width: 110px;
-            animation-delay: 2s;
-        }
-
-        /* === Section Styling === */
+        /* Section Styling */
         section {
             padding: 5rem 2rem;
             position: relative;
@@ -521,7 +557,7 @@
             animation: heartbeat 2s ease-in-out infinite;
         }
 
-        /* === ENHANCED: Automatic Image Slideshow with 6 Images === */
+        /* === DYNAMIC FIT-TO-IMAGE HORIZONTAL SLIDESHOW === */
         .slideshow-container {
             max-width: 1000px;
             margin: 0 auto 4rem;
@@ -530,39 +566,32 @@
             overflow: hidden;
             box-shadow: 
                 0 25px 70px rgba(0, 0, 0, 0.3),
-                0 0 50px rgba(196, 30, 58, 0.3);
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+                0 0 50px rgba(255, 23, 68, 0.3);
+            background: transparent;
+        }
+
+        .slides-wrapper {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 100%;
         }
 
         .slide {
-            display: none;
+            min-width: 100%;
             width: 100%;
-            animation: fadeInSlide 1s ease-in-out;
-        }
-
-        .slide.active {
-            display: block;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .slide img {
             width: 100%;
-            height: 600px;
+            height: auto;
+            max-height: 600px;
             object-fit: contain;
             object-position: center;
-            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
             display: block;
-        }
-
-        @keyframes fadeInSlide {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
         }
 
         .slide-caption {
@@ -595,11 +624,217 @@
         }
 
         .slide-dot.active {
-            background: var(--primary-red);
+            background: #ff1744;
             transform: scale(1.3);
         }
 
-        /* === Photo Gallery Grid === */
+        /* === EXACT SPOTIFY-STYLE MUSIC PLAYER CARDS === */
+        .music-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .music-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+        }
+
+        .music-card {
+            background: linear-gradient(135deg, #5b9fd8 0%, #4a90e2 100%);
+            border-radius: 20px;
+            padding: 0;
+            border: none;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.3),
+                0 0 40px rgba(90, 159, 216, 0.3);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
+        }
+
+        .music-card:nth-child(1) {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .music-card:nth-child(2) {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .music-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 
+                0 30px 80px rgba(0, 0, 0, 0.4),
+                0 0 60px rgba(90, 159, 216, 0.5);
+        }
+
+        /* Polaroid-style album image */
+        .music-card-image {
+            width: 100%;
+            background: white;
+            padding: 15px;
+            padding-bottom: 10px;
+        }
+
+        .music-card-image img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .music-card-spotify-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+            padding-left: 5px;
+        }
+
+        .spotify-icon {
+            width: 20px;
+            height: 20px;
+            background: #1DB954;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .spotify-text {
+            font-size: 11px;
+            color: #666;
+            letter-spacing: 0.5px;
+        }
+
+        /* Music info section */
+        .music-info {
+            padding: 20px;
+            color: white;
+        }
+
+        .music-card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.3rem;
+            font-family: 'Cinzel', serif;
+        }
+
+        .music-card-artist {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        /* Time and progress */
+        .music-time-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .time-current {
+            font-weight: 600;
+        }
+
+        .time-total {
+            font-weight: 600;
+        }
+
+        .time-heart {
+            color: #ff1744;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .time-heart:hover {
+            transform: scale(1.2);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            margin-bottom: 1.2rem;
+        }
+
+        .progress {
+            height: 100%;
+            background: white;
+            width: 0%;
+            transition: width 0.1s linear;
+            border-radius: 10px;
+        }
+
+        /* Player controls */
+        .music-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .control-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .control-btn:hover {
+            transform: scale(1.15);
+            opacity: 0.8;
+        }
+
+        .play-pause-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            color: #4a90e2;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .music-card:nth-child(1) .play-pause-btn {
+            color: #f5576c;
+        }
+
+        .music-card:nth-child(2) .play-pause-btn {
+            color: #00f2fe;
+        }
+
+        .play-pause-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .prev-btn, .next-btn {
+            font-size: 2rem;
+        }
+
+        /* === PHOTO GALLERY (Previous Design Restored) === */
         .photo-gallery {
             max-width: 1400px;
             margin: 0 auto;
@@ -619,7 +854,7 @@
             overflow: hidden;
             box-shadow: 
                 0 20px 60px rgba(0, 0, 0, 0.3),
-                0 0 30px rgba(196, 30, 58, 0.2);
+                0 0 30px rgba(255, 23, 68, 0.2);
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
@@ -630,15 +865,14 @@
             transform: translateY(-20px) scale(1.03);
             box-shadow: 
                 0 35px 80px rgba(0, 0, 0, 0.4),
-                0 0 50px rgba(196, 30, 58, 0.5);
+                0 0 50px rgba(255, 23, 68, 0.5);
+            border-color: var(--gold);
         }
 
         .photo-card img {
             width: 100%;
             height: 400px;
-            object-fit: contain;
-            object-position: center;
-            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            object-fit: cover;
             display: block;
             transition: transform 0.5s ease;
         }
@@ -667,6 +901,7 @@
             font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
         }
 
         .photo-shayari {
@@ -676,7 +911,7 @@
             font-style: italic;
         }
 
-        /* === Circular Photos === */
+        /* Circular Photos */
         .circular-photos {
             display: flex;
             justify-content: center;
@@ -692,10 +927,10 @@
             height: 250px;
             border-radius: 50%;
             overflow: hidden;
-            border: 6px solid var(--primary-red);
+            border: 6px solid #ff1744;
             box-shadow: 
                 0 20px 60px rgba(0, 0, 0, 0.3),
-                0 0 40px rgba(196, 30, 58, 0.4);
+                0 0 40px rgba(255, 23, 68, 0.4);
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -703,7 +938,7 @@
             transform: scale(1.15) rotate(5deg);
             box-shadow: 
                 0 30px 80px rgba(0, 0, 0, 0.5),
-                0 0 60px rgba(196, 30, 58, 0.7);
+                0 0 60px rgba(255, 23, 68, 0.7);
         }
 
         .circular-card img {
@@ -716,112 +951,6 @@
 
         .circular-card:hover img {
             transform: scale(1.1);
-        }
-
-        /* === PREMIUM SPOTIFY-STYLE MUSIC CARDS === */
-        .music-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-
-        .music-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .music-card {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 2rem;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 
-                0 15px 50px rgba(0, 0, 0, 0.2),
-                inset 0 0 30px rgba(255, 192, 203, 0.1);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .music-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 
-                0 25px 70px rgba(0, 0, 0, 0.3),
-                0 0 50px rgba(196, 30, 58, 0.3);
-        }
-
-        .music-card-cover {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, var(--primary-red), var(--purple));
-            border-radius: 15px;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .music-card-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .music-card-artist {
-            font-size: 1rem;
-            color: rgba(0, 0, 0, 0.6);
-            margin-bottom: 1.5rem;
-        }
-
-        .music-controls {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .play-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--primary-red);
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(196, 30, 58, 0.4);
-        }
-
-        .play-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 30px rgba(196, 30, 58, 0.6);
-        }
-
-        .progress-bar {
-            flex: 1;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 10px;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .progress {
-            height: 100%;
-            background: var(--primary-red);
-            width: 0%;
-            transition: width 0.1s linear;
-        }
-
-        .time-display {
-            font-size: 0.9rem;
-            color: rgba(0, 0, 0, 0.6);
         }
 
         /* === Shayari Cards === */
@@ -851,7 +980,7 @@
             transform: translateY(-15px) scale(1.03);
             box-shadow: 
                 0 20px 50px rgba(0, 0, 0, 0.3),
-                0 0 40px rgba(196, 30, 58, 0.3);
+                0 0 40px rgba(255, 23, 68, 0.3);
         }
 
         .shayari-card::before {
@@ -860,7 +989,7 @@
             top: 1rem;
             left: 1.5rem;
             font-size: 4rem;
-            color: rgba(196, 30, 58, 0.3);
+            color: rgba(255, 23, 68, 0.3);
             font-family: 'Great Vibes', cursive;
         }
 
@@ -877,18 +1006,21 @@
             font-style: italic;
         }
 
-        /* === Love Letter === */
+        /* === ROMANTIC GRADIENT LOVE LETTER === */
         .love-letter {
             max-width: 800px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 4px solid var(--primary-red);
+            background: linear-gradient(135deg, 
+                rgba(255, 248, 240, 0.98) 0%,
+                rgba(255, 228, 236, 0.98) 50%,
+                rgba(248, 187, 208, 0.98) 100%);
+            backdrop-filter: blur(15px);
+            border: 4px solid #ff1744;
             border-radius: 20px;
             padding: 3rem;
             box-shadow: 
                 0 25px 70px rgba(0, 0, 0, 0.3),
-                inset 0 0 30px rgba(255, 192, 203, 0.1);
+                inset 0 0 40px rgba(255, 192, 203, 0.3);
             color: var(--dark);
             position: relative;
         }
@@ -906,7 +1038,7 @@
         .letter-greeting {
             font-family: 'Great Vibes', cursive;
             font-size: 2.5rem;
-            color: var(--primary-red);
+            color: #ff1744;
             margin-bottom: 1.5rem;
         }
 
@@ -920,12 +1052,12 @@
         .letter-signature {
             font-family: 'Great Vibes', cursive;
             font-size: 2rem;
-            color: var(--primary-red);
+            color: #ff1744;
             text-align: right;
             margin-top: 2rem;
         }
 
-        /* === Promise Section === */
+        /* Promise Section */
         .promise-section {
             min-height: 100vh;
             display: flex;
@@ -959,14 +1091,12 @@
         .promise-seal {
             font-family: 'Great Vibes', cursive;
             font-size: 3rem;
-            color: var(--primary-red);
+            color: #ff1744;
             margin-top: 2rem;
-            text-shadow: 0 0 20px rgba(196, 30, 58, 0.5);
+            text-shadow: 0 0 20px rgba(255, 23, 68, 0.5);
         }
 
-        /* Modal removed */
-
-        /* === Footer === */
+        /* Footer */
         footer {
             text-align: center;
             padding: 3rem 2rem;
@@ -979,9 +1109,9 @@
         .footer-text {
             font-family: 'Great Vibes', cursive;
             font-size: 2.5rem;
-            color: var(--primary-red);
+            color: #ff1744;
             margin-bottom: 1rem;
-            text-shadow: 0 0 20px rgba(196, 30, 58, 0.5);
+            text-shadow: 0 0 20px rgba(255, 23, 68, 0.5);
         }
 
         .footer-subtitle {
@@ -989,7 +1119,7 @@
             color: var(--dark);
         }
 
-        /* === Ambient Music Player (Bottom Right) === */
+        /* === Ambient Music Player === */
         .ambient-music-player {
             position: fixed;
             bottom: 2rem;
@@ -1004,7 +1134,7 @@
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             box-shadow: 
                 0 10px 40px rgba(0, 0, 0, 0.2),
-                0 0 30px rgba(196, 30, 58, 0.3);
+                0 0 30px rgba(255, 23, 68, 0.3);
         }
 
         .ambient-music-player:hover {
@@ -1012,7 +1142,7 @@
             background: rgba(255, 255, 255, 0.35);
             box-shadow: 
                 0 15px 50px rgba(0, 0, 0, 0.3),
-                0 0 50px rgba(196, 30, 58, 0.5);
+                0 0 50px rgba(255, 23, 68, 0.5);
         }
 
         .music-icon {
@@ -1036,7 +1166,10 @@
             }
 
             .shayari-grid,
-            .music-cards,
+            .music-cards {
+                grid-template-columns: 1fr;
+            }
+
             .gallery-grid {
                 grid-template-columns: 1fr;
             }
@@ -1051,7 +1184,8 @@
             }
 
             .photo-card img {
-                height: 300px;
+                min-height: 250px;
+                max-height: 350px;
             }
 
             /* Mobile heart game adjustments */
@@ -1064,9 +1198,15 @@
                 padding: 0.8rem 2rem;
             }
 
-            /* Hide teddy decorations on small screens */
+            /* Smaller teddy circles on mobile */
+            .teddy-circle {
+                width: 150px;
+                height: 150px;
+                border-width: 4px;
+            }
+
             .teddy-decoration {
-                display: none;
+                display: none; /* Hide on very small screens */
             }
         }
 
@@ -1085,10 +1225,26 @@
     <!-- Floating Hearts -->
     <div class="hearts-container" id="heartsContainer"></div>
 
-    <!-- === TEDDY BEAR DECORATIONS === -->
-    <img src="teddy1.png" alt="Teddy" class="teddy-decoration teddy-1" onerror="this.style.display='none'">
-    <img src="teddy2.png" alt="Teddy" class="teddy-decoration teddy-2" onerror="this.style.display='none'">
-    <img src="teddy3.mp4" alt="Teddy" class="teddy-decoration teddy-3" onerror="this.style.display='none'">
+    <!-- === ENLARGED CIRCULAR TEDDY DECORATIONS === -->
+    <div class="teddy-decoration teddy-1">
+        <div class="teddy-circle">
+            <img src="teddy1.png" alt="Teddy Bear 1" onerror="this.parentElement.parentElement.style.display='none'">
+        </div>
+    </div>
+    
+    <div class="teddy-decoration teddy-2">
+        <div class="teddy-circle">
+            <img src="teddy2.png" alt="Teddy Bear 2" onerror="this.parentElement.parentElement.style.display='none'">
+        </div>
+    </div>
+    
+    <div class="teddy-decoration teddy-3">
+        <div class="teddy-circle">
+            <video autoplay muted loop playsinline>
+                <source src="teddy3.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
 
     <!-- === INTERACTIVE HEART GAME === -->
     <div class="interactive-heart-container" id="heartContainer">
@@ -1120,34 +1276,36 @@
         </div>
     </section>
 
-    <!-- === AUTOMATIC IMAGE SLIDESHOW (6 Images) === -->
+    <!-- === DYNAMIC HORIZONTAL SLIDING SLIDESHOW === -->
     <section class="reveal-left">
         <h2 class="section-title">Our Beautiful Memories</h2>
         
         <div class="slideshow-container">
-            <div class="slide active">
-                <img src="Wedding.png" alt="Wedding Day">
-                <div class="slide-caption">हमारी शादी का दिन - सबसे खूबसूरत पल</div>
-            </div>
-            <div class="slide">
-                <img src="image1.jpeg" alt="Beautiful Moment 1">
-                <div class="slide-caption">तुम्हारे साथ हर लम्हा खास है</div>
-            </div>
-            <div class="slide">
-                <img src="image2.png" alt="Beautiful Moment 2">
-                <div class="slide-caption">प्यार भरे पल</div>
-            </div>
-            <div class="slide">
-                <img src="image3.jpeg" alt="Beautiful Moment 3">
-                <div class="slide-caption">साथ चलते रहेंगे हमेशा</div>
-            </div>
-            <div class="slide">
-                <img src="image4.jpeg" alt="Beautiful Moment 4">
-                <div class="slide-caption">तेरे बिना अधूरा हूँ मैं</div>
-            </div>
-            <div class="slide">
-                <img src="image5.jpeg" alt="Beautiful Moment 5">
-                <div class="slide-caption">हर जन्म में तुझे ही चाहूँगा</div>
+            <div class="slides-wrapper" id="slidesWrapper">
+                <div class="slide">
+                    <img src="Wedding.png" alt="Wedding Day">
+                    <div class="slide-caption">हमारी शादी का दिन - सबसे खूबसूरत पल</div>
+                </div>
+                <div class="slide">
+                    <img src="image1.jpeg" alt="Beautiful Moment 1">
+                    <div class="slide-caption">तुम्हारे साथ हर लम्हा खास है</div>
+                </div>
+                <div class="slide">
+                    <img src="image7.png" alt="Beautiful Moment 2">
+                    <div class="slide-caption">प्यार भरे पल</div>
+                </div>
+                <div class="slide">
+                    <img src="image3.jpeg" alt="Beautiful Moment 3">
+                    <div class="slide-caption">साथ चलते रहेंगे हमेशा</div>
+                </div>
+                <div class="slide">
+                    <img src="image9.png" alt="Beautiful Moment 4">
+                    <div class="slide-caption">तेरे बिना अधूरा हूँ मैं</div>
+                </div>
+                <div class="slide">
+                    <img src="image8.png" alt="Beautiful Moment 5">
+                    <div class="slide-caption">हर जन्म में तुझे ही चाहूँगा</div>
+                </div>
             </div>
         </div>
 
@@ -1156,48 +1314,78 @@
         </div>
     </section>
 
-    <!-- === PREMIUM SPOTIFY-STYLE MUSIC CARDS === -->
+    <!-- === SPOTIFY-STYLE MUSIC PLAYER CARDS === -->
     <section class="music-section reveal">
         <h2 class="section-title">Our Love Songs</h2>
         
         <div class="music-cards">
             <!-- Music Card 1: Gehra Hua -->
             <div class="music-card">
-                <div class="music-card-cover">🎵</div>
-                <h3 class="music-card-title">Gehra Hua</h3>
-                <p class="music-card-artist">Romantic Melody</p>
-                <div class="music-controls">
-                    <button class="play-btn" onclick="toggleMusic(1)" id="playBtn1">
-                        ▶️
-                    </button>
+                <div class="music-card-image">
+                    <img src="image6.png" alt="Gehra Hua">
+                    <div class="music-card-spotify-logo">
+                        <div class="spotify-icon">♪</div>
+                        <div class="spotify-text">SPOTIFY</div>
+                    </div>
+                </div>
+                <div class="music-info">
+                    <h3 class="music-card-title">Gehra Hua</h3>
+                    <p class="music-card-artist">Romantic Melody</p>
+                    
+                    <div class="music-time-info">
+                        <span class="time-current" id="currentTime1">0:01</span>
+                        <span class="time-heart">❤️</span>
+                        <span class="time-total" id="totalTime1">-2:54</span>
+                    </div>
+                    
                     <div class="progress-bar" onclick="seekMusic(event, 1)">
                         <div class="progress" id="progress1"></div>
                     </div>
-                    <span class="time-display" id="time1">0:00</span>
+                    
+                    <div class="music-controls">
+                        <button class="control-btn prev-btn" onclick="prevTrack(1)">⏮</button>
+                        <button class="control-btn play-pause-btn" onclick="toggleMusic(1)" id="playBtn1">▶️</button>
+                        <button class="control-btn next-btn" onclick="nextTrack(1)">⏭</button>
+                    </div>
                 </div>
                 <audio id="music1" src="GehraHua.mp3"></audio>
             </div>
 
             <!-- Music Card 2: You & Me -->
             <div class="music-card">
-                <div class="music-card-cover">🎶</div>
-                <h3 class="music-card-title">You & Me</h3>
-                <p class="music-card-artist">Love Duet</p>
-                <div class="music-controls">
-                    <button class="play-btn" onclick="toggleMusic(2)" id="playBtn2">
-                        ▶️
-                    </button>
+                <div class="music-card-image">
+                    <img src="image1.jpeg" alt="You & Me">
+                    <div class="music-card-spotify-logo">
+                        <div class="spotify-icon">♪</div>
+                        <div class="spotify-text">SPOTIFY</div>
+                    </div>
+                </div>
+                <div class="music-info">
+                    <h3 class="music-card-title">You & Me</h3>
+                    <p class="music-card-artist">Love Duet</p>
+                    
+                    <div class="music-time-info">
+                        <span class="time-current" id="currentTime2">0:01</span>
+                        <span class="time-heart">❤️</span>
+                        <span class="time-total" id="totalTime2">-2:54</span>
+                    </div>
+                    
                     <div class="progress-bar" onclick="seekMusic(event, 2)">
                         <div class="progress" id="progress2"></div>
                     </div>
-                    <span class="time-display" id="time2">0:00</span>
+                    
+                    <div class="music-controls">
+                        <button class="control-btn prev-btn" onclick="prevTrack(2)">⏮</button>
+                        <button class="control-btn play-pause-btn" onclick="toggleMusic(2)" id="playBtn2">▶️</button>
+                        <button class="control-btn next-btn" onclick="nextTrack(2)">⏭</button>
+                    </div>
                 </div>
                 <audio id="music2" src="YouMe.mp3"></audio>
             </div>
         </div>
     </section>
 
-    <!-- === Photo Gallery Grid === -->
+    <!-- === DYNAMIC MASONRY PHOTO GALLERY === -->
     <section id="gallery" class="photo-gallery reveal-right">
         <h2 class="section-title">More Precious Moments</h2>
         
@@ -1224,7 +1412,7 @@
                     </p>
                 </div>
             </div>
-            <div class="photo-card reveal" style="transition-delay: 0.2s;">
+            <div class="photo-card reveal">
                 <img src="image4.jpeg" alt="Together Forever">
                 <div class="photo-overlay">
                     <h3 class="photo-caption">Together Forever</h3>
@@ -1234,7 +1422,7 @@
                     </p>
                 </div>
             </div>
-            <div class="photo-card reveal" style="transition-delay: 0.4s;">
+            <div class="photo-card reveal">
                 <img src="image5.jpeg" alt="Love & Laughter">
                 <div class="photo-overlay">
                     <h3 class="photo-caption">Love & Laughter</h3>
@@ -1362,9 +1550,7 @@
         <p class="footer-subtitle" style="margin-top: 1rem; font-size: 0.9rem;">25 April 2021 - Eternity</p>
     </footer>
 
-    <!-- Modal removed - heart game not needed -->
-
-    <!-- === Ambient Background Music Player (Muskurane - Soft Romantic) === -->
+    <!-- === Ambient Background Music Player === -->
     <div class="ambient-music-player" onclick="toggleAmbientMusic()" title="Background Music: Muskurane">
         <span class="music-icon" id="ambientIcon">🎵</span>
     </div>
@@ -1394,7 +1580,7 @@
             heart.classList.add('heart');
             
             const hearts = ['❤️', '💕', '💖', '💗', '💝'];
-            const colors = ['#ffc0cb', '#ff69b4', '#c41e3a', '#ff1493', '#a855f7'];
+            const colors = ['#ffc0cb', '#ff69b4', '#ff1744', '#ff1493', '#a855f7'];
             const sizes = [15, 18, 22, 25, 20];
             
             const randomIndex = Math.floor(Math.random() * hearts.length);
@@ -1441,9 +1627,10 @@
             }
         });
 
-        /* === AUTOMATIC IMAGE SLIDESHOW (3-4 seconds per slide) === */
+        /* === HORIZONTAL SLIDING SLIDESHOW === */
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
+        const slidesWrapper = document.getElementById('slidesWrapper');
         const totalSlides = slides.length;
 
         // Create navigation dots
@@ -1457,11 +1644,14 @@
         }
 
         function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            document.querySelectorAll('.slide-dot').forEach(dot => dot.classList.remove('active'));
+            // Update transform for horizontal sliding
+            const translateX = -index * 100;
+            slidesWrapper.style.transform = `translateX(${translateX}%)`;
             
-            slides[index].classList.add('active');
-            document.querySelectorAll('.slide-dot')[index].classList.add('active');
+            // Update dots
+            document.querySelectorAll('.slide-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
         }
 
         function nextSlide() {
@@ -1477,12 +1667,7 @@
         // Auto-advance every 3.5 seconds
         setInterval(nextSlide, 3500);
 
-        /* === Close Modal === */
-        function closeModal() {
-            document.getElementById('heartModal').classList.remove('active');
-        }
-
-        /* === NEW: Interactive Heart Game with Burst === */
+        /* === Interactive Heart Game with Burst === */
         let heartClicks = 0;
         const heartWrapper = document.getElementById('heartWrapper');
         const bigHeart = document.getElementById('bigHeart');
@@ -1521,7 +1706,7 @@
 
         function createHeartBurst() {
             const heartColors = ['❤️', '💕', '💖', '💗', '💝', '💓', '💞', '💘'];
-            const burstCount = 80; // 80 hearts burst
+            const burstCount = 80;
             
             const centerX = window.innerWidth / 2;
             const centerY = window.innerHeight / 2;
@@ -1580,7 +1765,7 @@
                 });
                 
                 state.audio.play();
-                btn.textContent = '⏸️';
+                btn.textContent = '⏸';
                 state.playing = true;
             }
         }
@@ -1595,28 +1780,54 @@
         }
 
         function formatTime(seconds) {
+            if (isNaN(seconds)) return '0:00';
             const mins = Math.floor(seconds / 60);
             const secs = Math.floor(seconds % 60);
             return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
         }
 
-        // Update progress bars
+        function formatTimeRemaining(current, total) {
+            if (isNaN(current) || isNaN(total)) return '-0:00';
+            const remaining = total - current;
+            const mins = Math.floor(remaining / 60);
+            const secs = Math.floor(remaining % 60);
+            return `-${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        function prevTrack(cardNum) {
+            const state = musicStates[cardNum];
+            state.audio.currentTime = Math.max(0, state.audio.currentTime - 10);
+        }
+
+        function nextTrack(cardNum) {
+            const state = musicStates[cardNum];
+            state.audio.currentTime = Math.min(state.audio.duration, state.audio.currentTime + 10);
+        }
+
+        // Update progress bars and time displays
         [1, 2].forEach(num => {
             const audio = musicStates[num].audio;
+            
+            audio.addEventListener('loadedmetadata', () => {
+                document.getElementById(`totalTime${num}`).textContent = formatTimeRemaining(0, audio.duration);
+            });
+            
             audio.addEventListener('timeupdate', () => {
                 const progress = (audio.currentTime / audio.duration) * 100;
                 document.getElementById(`progress${num}`).style.width = progress + '%';
-                document.getElementById(`time${num}`).textContent = formatTime(audio.currentTime);
+                document.getElementById(`currentTime${num}`).textContent = formatTime(audio.currentTime);
+                document.getElementById(`totalTime${num}`).textContent = formatTimeRemaining(audio.currentTime, audio.duration);
             });
 
             audio.addEventListener('ended', () => {
                 document.getElementById(`playBtn${num}`).textContent = '▶️';
                 musicStates[num].playing = false;
                 document.getElementById(`progress${num}`).style.width = '0%';
+                audio.currentTime = 0;
             });
         });
 
-        /* === AMBIENT BACKGROUND MUSIC (Muskurane - Romantic) === */
+        /* === AMBIENT BACKGROUND MUSIC === */
         let ambientPlaying = false;
         let firstInteraction = true;
 
